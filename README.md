@@ -414,7 +414,7 @@ In this chapter, we will build a **Query Normalizer** to solve the issues of cap
 If a user searches for `"Frontend!!!"`, `"  frontend  "`, or `"FRONTEND"`, they expect to find the `"Frontend Developer"` role.
 Standard string comparisons look at exact characters. We need to convert the query into a standard, clean representation before executing the search.
 
-![Experiment Sandbox Screenshot](./public/Screenshot_Experiment.png)
+![Normalization Success](./public/Screenshot_Norm_Success.png)
 
 ---
 
@@ -627,8 +627,6 @@ export default function SearchPage() {
 #### 🏆 Run and Verify:
 Now, type `ml` or `react` into your search bar.
 * **Results:** Typing `ml` now outputs the `"AI Engineer"` card, and `react` yields `"Frontend Developer"`!
-
-![Alias Expansion Success](./public/Screenshot_Alias_Success.png)
 
 ---
 
@@ -1054,6 +1052,8 @@ export default function SearchConsole() {
 4. Now, check the **ALIAS EXPANSION** toggle.
 5. Watch the Live Status Banner update: `Alias ✓`
 6. *Boom!* **The Matrix** immediately renders on screen!
+
+![Alias Expansion Success](./public/Screenshot_Alias_Success.png)
 
 ### ⚠️ Common Mistakes in Pipeline Assembly
 * **Missing dependency variables in useMemo:** If you omit `config` or `datasetItems` from the `useMemo` dependency array, toggling active check gates or switching datasets won't trigger query re-evaluation. The results will freeze. Always specify all variables consumed inside `useMemo` in the dependency list.
