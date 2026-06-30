@@ -17,7 +17,7 @@
          [Ranked Results]
 ```
 
-![Smart Search Laboratory Overview](./public/Screenshot_Apply.png)
+![Smart Search Laboratory Overview](./public/Screenshot_Diagnose.png)
 
 > "The best way to learn is to teach." - Frank Oppenheimer
 
