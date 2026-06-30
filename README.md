@@ -258,47 +258,7 @@ Create the files `types/index.ts` and `lib/seed-careers.ts` in your Next.js dire
 
 In this chapter, we will build a standard, exact-match search bar. It will look beautiful, but it will work terribly. Our goal is to experience exactly why simple searches fail.
 
-### Step 1: Seed the Data
-Create a new file at `lib/seed-careers.ts` and add some sample career entries:
-
-```typescript
-// lib/seed-careers.ts
-export interface Career {
-  id: string;
-  title: string;
-  aliases: string[];
-  skillsRequired: string[];
-  description: string;
-}
-
-export const careers: Career[] = [
-  {
-    id: "1",
-    title: "Frontend Developer",
-    aliases: ["react developer", "ui engineer", "web developer"],
-    skillsRequired: ["javascript", "react", "css", "html"],
-    description: "Builds and implements the user-facing side of web applications."
-  },
-  {
-    id: "2",
-    title: "Backend Developer",
-    aliases: ["node developer", "server engineer", "api developer"],
-    skillsRequired: ["javascript", "node", "python", "sql"],
-    description: "Architects database schemas, server routes, and back-end logic."
-  }
-];
-```
-
----
-
-### 🧐 Engineering Decision: Why Seed Mock Data?
-**Why not connect to a real database (like PostgreSQL or MongoDB)?**
-* **The Drawback:** Forcing learners to configure database drivers, write API routes, and spin up docker instances distracts from the core learning outcome.
-* **The Decision:** We use local seed data arrays. This allows the search code to run completely client-side in the user's browser, giving us sub-millisecond hot-reload times and zero configuration overhead.
-
----
-
-### Step 2: The Basic Search Component
+### Step 1: Build the Basic Search Component
 Let's build a React search component inside `app/page.tsx`. This component uses standard JavaScript `.includes()` matching:
 
 ```tsx
