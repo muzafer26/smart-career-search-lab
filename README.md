@@ -17,7 +17,7 @@
          [Ranked Results]
 ```
 
-![Smart Search Laboratory Overview](./public/Screenshot%202026-06-30%20175450.png)
+![Smart Search Laboratory Overview](./public/Screenshot_Apply.png)
 
 > "The best way to learn is to teach." - Frank Oppenheimer
 
@@ -65,13 +65,13 @@ Rather than walking through passive, copy-paste instructions, learners complete 
 
 ### The Four Lab Environments:
 1. **Explore (Diagnose):** Type messy inputs to witness exact substring matching fail.
-   ![Lab 1: Explore Tab](./public/Screenshot%202026-06-25%20224034.png)
+   ![Lab 1: Explore Tab](./public/Screenshot_Diagnose.png)
 2. **Understand (Experiment):** Play inside isolated sandbox components to test normalization and fuzzy thresholds.
-   ![Lab 2: Understand Tab](./public/Screenshot%202026-06-25%20224058.png)
+   ![Lab 2: Understand Tab](./public/Screenshot_Experiment.png)
 3. **Build (Repair):** Patch buggy query processing functions and watch real-time in-browser unit tests pass or fail.
-   ![Lab 3: Build Tab](./public/Screenshot%202026-06-25%20224124.png)
+   ![Lab 3: Build Tab](./public/Screenshot_Repair.png)
 4. **Console (Apply):** Hot-swap databases (Careers, Movies, Books) and toggle pipeline gates to observe search score priority.
-   ![Lab 4: Console Tab](./public/Screenshot%202026-06-30%20175450.png)
+   ![Lab 4: Console Tab](./public/Screenshot_Apply.png)
 
 ---
 
@@ -413,7 +413,7 @@ In this chapter, we will build a **Query Normalizer** to solve the issues of cap
 If a user searches for `"Frontend!!!"`, `"  frontend  "`, or `"FRONTEND"`, they expect to find the `"Frontend Developer"` role.
 Standard string comparisons look at exact characters. We need to convert the query into a standard, clean representation before executing the search.
 
-![Experiment Sandbox Screenshot](./public/Screenshot%202026-06-25%20224058.png)
+![Experiment Sandbox Screenshot](./public/Screenshot_Experiment.png)
 
 ---
 
@@ -1050,7 +1050,7 @@ export default function SearchConsole() {
 5. Watch the Live Status Banner update: `Alias ✓`
 6. *Boom!* **The Matrix** immediately renders on screen!
 
-![Apply Console Hot Swap test verification screenshot](./public/Screenshot%202026-06-30%20143353.png)
+![Apply Console Hot Swap test verification screenshot](./public/Screenshot_Apply.png)
 
 ### ⚠️ Common Mistakes in Pipeline Assembly
 * **Missing dependency variables in useMemo:** If you omit `config` or `datasetItems` from the `useMemo` dependency array, toggling active check gates or switching datasets won't trigger query re-evaluation. The results will freeze. Always specify all variables consumed inside `useMemo` in the dependency list.
