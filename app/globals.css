@@ -1,0 +1,1235 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One:wght@400&family=Comic+Neue:wght@300;400;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #e11d48;
+  /* Rose 600 */
+  --secondary: #2563eb;
+  /* Blue 600 */
+  --accent: #f59e0b;
+  /* Amber 500 */
+  --purple: #7c3aed;
+  /* Violet 600 */
+  --green: #10b981;
+  /* Emerald 500 */
+  --bg: #faf9f6;
+  /* Premium warm cream */
+  --dark: #0f172a;
+  /* Slate 900 */
+  --comic-shadow: 6px 6px 0px #0f172a;
+  --comic-shadow-lg: 10px 10px 0px #0f172a;
+}
+
+/* -- BASE -- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Comic Neue', cursive;
+  font-weight: 700;
+  /* bold comicbook styling for high readability */
+  background-color: var(--bg);
+  min-height: 100vh;
+  color: var(--dark);
+}
+
+/* halftone overlay on body */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(15, 23, 42, 0.05) 1.5px, transparent 1.5px);
+  background-size: 24px 24px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* -- LAYOUT -- */
+.layout-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 1;
+}
+
+.page-column {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+  width: 100%;
+}
+
+/* -- HEADER / NAV -- */
+.nav-wrapper {
+  background: #fff;
+  border-bottom: 4px solid #000;
+  box-shadow: 0 4px 0 #000;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 0 24px;
+}
+
+.nav-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 68px;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nav-logo-dot {
+  width: 42px;
+  height: 42px;
+  background: var(--primary);
+  border-radius: 50%;
+  border: 3px solid #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 3px 3px 0 #000;
+  font-size: 20px;
+}
+
+.nav-title {
+  font-family: 'Fredoka One', cursive;
+  font-size: 22px;
+  color: var(--dark);
+  text-shadow: 1px 1px 0 #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 2px 2px 0 #000;
+  letter-spacing: 0.02em;
+}
+
+.nav-eyebrow {
+  font-family: 'Comic Neue', cursive;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  display: block;
+}
+
+.tab-nav {
+  display: flex;
+  gap: 6px;
+  background: #f5f5f5;
+  border: 3px solid #000;
+  border-radius: 12px;
+  padding: 4px;
+  box-shadow: 3px 3px 0 #000;
+}
+
+.tab-link {
+  font-family: 'Fredoka One', cursive;
+  font-size: 15px;
+  padding: 8px 20px;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  background: none;
+  cursor: pointer;
+  color: var(--dark);
+  transition: all 0.15s;
+  letter-spacing: 0.02em;
+}
+
+.tab-link:hover {
+  background: var(--accent);
+  border-color: #000;
+  transform: rotate(-1deg) translateY(-1px);
+  box-shadow: 3px 3px 0 #000;
+}
+
+.tab-link.active {
+  background: var(--primary);
+  color: #fff;
+  border-color: #000;
+  box-shadow: 3px 3px 0 #000;
+  transform: rotate(-1deg);
+}
+
+/* -- EXPLORE -- */
+.explore-hero {
+  text-align: center;
+  padding: 48px 0 32px;
+}
+
+.explore-hero-question {
+  font-family: 'Fredoka One', cursive;
+  font-size: clamp(32px, 6vw, 52px);
+  line-height: 1.35;
+  color: var(--dark);
+  text-shadow: 2px 2px 0 var(--primary), 4px 4px 0 #000;
+  margin-bottom: 16px;
+}
+
+.explore-hero-sub {
+  font-family: 'Comic Neue', cursive;
+  font-size: 18px;
+  font-weight: 700;
+  color: #334155;
+  line-height: 1.6;
+}
+
+.search-input {
+  width: 100%;
+  padding: 18px 48px 18px 20px;
+  font-family: 'Fredoka One', cursive;
+  font-size: 20px;
+  background: #fff;
+  border: 4px solid #000;
+  border-radius: 16px;
+  outline: none;
+  box-shadow: var(--comic-shadow);
+  color: var(--dark);
+  transition: box-shadow 0.15s, transform 0.15s;
+}
+
+.search-input::placeholder {
+  color: #aaa;
+  font-family: 'Comic Neue', cursive;
+  font-size: 16px;
+}
+
+.search-input:focus {
+  box-shadow: var(--comic-shadow-lg);
+  transform: translateY(-2px);
+}
+
+.explore-suggestions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+  font-family: 'Comic Neue', cursive;
+  font-size: 14px;
+  color: #666;
+  margin: 10px 0 4px;
+}
+
+.explore-suggestions button {
+  background: var(--accent);
+  border: 2px solid #000;
+  border-radius: 20px;
+  padding: 3px 12px;
+  font-family: 'Fredoka One', cursive;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 2px 2px 0 #000;
+  transition: all 0.12s;
+  color: var(--dark);
+}
+
+.explore-suggestions button:hover {
+  transform: rotate(-2deg) translateY(-2px);
+  box-shadow: 4px 4px 0 #000;
+  background: var(--primary);
+  color: #fff;
+}
+
+/* -- PIPELINE -- */
+.pipeline-story {
+  margin: 28px 0;
+  background: #fff;
+  border: 4px solid #000;
+  border-radius: 20px;
+  padding: 24px 28px;
+  box-shadow: var(--comic-shadow);
+  position: relative;
+}
+
+.pipeline-story::before {
+  content: 'Spark PIPELINE';
+  position: absolute;
+  top: -14px;
+  left: 20px;
+  background: var(--accent);
+  border: 3px solid #000;
+  border-radius: 20px;
+  padding: 2px 12px;
+  font-family: 'Fredoka One', cursive;
+  font-size: 12px;
+  color: var(--dark);
+  box-shadow: 2px 2px 0 #000;
+}
+
+.pipeline-step {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: #f5f4f0;
+  border: none;
+  margin-bottom: 2px;
+}
+
+.pipeline-step-label {
+  font-family: 'Comic Neue', cursive;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #888;
+}
+
+.pipeline-step-value {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--dark);
+}
+
+.pipeline-step-value.is-primary {
+  color: var(--primary);
+  font-size: 15px;
+}
+
+.pipeline-step-value.is-muted {
+  color: #aaa;
+  font-style: italic;
+  font-family: 'Comic Neue', cursive;
+}
+
+.pipeline-connector {
+  width: 2px;
+  height: 12px;
+  background: repeating-linear-gradient(to bottom, #000 0, #000 4px, transparent 4px, transparent 8px);
+  margin: 0 auto;
+}
+
+/* -- RESULT CARD -- */
+.result-card {
+  background: #fff;
+  border: 4px solid #000;
+  border-radius: 20px;
+  padding: 28px;
+  box-shadow: var(--comic-shadow-lg);
+  margin-bottom: 20px;
+  transform: rotate(-0.5deg);
+  transition: transform 0.2s;
+}
+
+.result-card:hover {
+  transform: rotate(0deg) translateY(-3px);
+}
+
+.result-eyebrow {
+  font-family: 'Comic Neue', cursive;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #888;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.result-title {
+  font-family: 'Fredoka One', cursive;
+  font-size: 32px;
+  color: var(--dark);
+  text-shadow: 2px 2px 0 var(--accent);
+  margin-bottom: 10px;
+}
+
+.result-reason {
+  font-family: 'Comic Neue', cursive;
+  font-size: 16px;
+  font-weight: 700;
+  color: #334155;
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+
+.result-salary {
+  font-family: 'Fredoka One', cursive;
+  font-size: 15px;
+  color: var(--green);
+  background: #f0fff4;
+  border: 2px solid var(--green);
+  border-radius: 20px;
+  padding: 4px 14px;
+  display: inline-block;
+  box-shadow: 2px 2px 0 #000;
+}
+
+.match-badge {
+  display: inline-block;
+  font-family: 'Fredoka One', cursive;
+  font-size: 13px;
+  padding: 3px 12px;
+  border-radius: 20px;
+  border: 2px solid #000;
+  box-shadow: 2px 2px 0 #000;
+  background: var(--accent);
+  color: var(--dark);
+  text-transform: capitalize;
+  transform: rotate(-1deg);
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.skill-tag {
+  font-family: 'Comic Neue', cursive;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 4px 12px;
+  background: #f0f0f0;
+  border: 2px solid #ddd;
+  border-radius: 20px;
+  color: #555;
+  transition: all 0.15s;
+}
+
+.skill-tag.matched {
+  background: var(--secondary);
+  border-color: #000;
+  color: #fff;
+  box-shadow: 2px 2px 0 #000;
+  transform: rotate(-1deg);
+}
+
+/* -- SECONDARY RESULTS -- */
+.secondary-results {
+  background: #fff;
+  border: 2px solid #000;
+  border-radius: 16px;
+  padding: 20px 24px;
+  box-shadow: 2px 2px 0 #000;
+}
+
+.secondary-eyebrow {
+  font-family: 'Fredoka One', cursive;
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.secondary-result-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 2px dashed #eee;
+}
+
+.secondary-result-row:last-child {
+  border-bottom: none;
+}
+
+.secondary-result-title {
+  font-family: 'Comic Neue', cursive;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--dark);
+}
+
+.secondary-result-type {
+  font-family: 'Fredoka One', cursive;
+  font-size: 12px;
+  color: #aaa;
+  text-transform: capitalize;
+}
+
+/* -- UNDERSTAND -- */
+.understand-intro {
+  background: var(--accent);
+  border: 4px solid #000;
+  border-radius: 20px;
+  padding: 20px 24px;
+  font-family: 'Comic Neue', cursive;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--dark);
+  box-shadow: var(--comic-shadow);
+  margin-bottom: 16px;
+  position: relative;
+  transform: rotate(-0.5deg);
+}
+
+.understand-intro::before {
+  content: ' ORIGIN STORY';
+  position: absolute;
+  top: -14px;
+  left: 20px;
+  background: var(--primary);
+  color: #fff;
+  border: 2px solid #000;
+  border-radius: 20px;
+  padding: 2px 12px;
+  font-family: 'Fredoka One', cursive;
+  font-size: 12px;
+  box-shadow: 2px 2px 0 #000;
+}
+
+.chapter-number {
+  font-family: 'Fredoka One', cursive;
+  font-size: 72px;
+  line-height: 1;
+  color: var(--primary);
+  text-shadow: 3px 3px 0 #000;
+  margin-bottom: 8px;
+}
+
+.chapter-question {
+  font-family: 'Fredoka One', cursive;
+  font-size: clamp(22px, 4vw, 30px);
+  color: var(--dark);
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+
+.chapter-premise {
+  font-family: 'Comic Neue', cursive;
+  font-size: 16px;
+  font-weight: 700;
+  color: #334155;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.chapter-separator {
+  height: 6px;
+  background: repeating-linear-gradient(90deg, var(--primary) 0, var(--primary) 20px, var(--accent) 20px, var(--accent) 40px, var(--green) 40px, var(--green) 60px, var(--secondary) 60px, var(--secondary) 80px);
+  border-radius: 4px;
+  border: 2px solid #000;
+  margin: 48px 0;
+  box-shadow: 2px 2px 0 #000;
+}
+
+.predict-group {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.predict-btn {
+  font-family: 'Fredoka One', cursive;
+  font-size: 15px;
+  padding: 12px 20px;
+  border: 3px solid #000;
+  border-radius: 12px;
+  background: #fff;
+  cursor: pointer;
+  box-shadow: 4px 4px 0 #000;
+  transition: all 0.15s;
+  color: var(--dark);
+}
+
+.predict-btn:hover {
+  transform: rotate(-2deg) translateY(-2px);
+  box-shadow: 6px 6px 0 #000;
+}
+
+.predict-btn.selected-yes {
+  background: var(--green);
+  color: #fff;
+  transform: rotate(-1deg);
+}
+
+.predict-btn.selected-no {
+  background: var(--primary);
+  color: #fff;
+  transform: rotate(1deg);
+}
+
+.experiment-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.experiment-single {
+  margin-bottom: 16px;
+}
+
+.experiment-label {
+  font-family: 'Comic Neue', cursive;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #888;
+  margin-bottom: 6px;
+}
+
+.experiment-input {
+  width: 100%;
+  padding: 10px 14px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  border: 3px solid #000;
+  border-radius: 10px;
+  background: #fff;
+  outline: none;
+  box-shadow: 3px 3px 0 #000;
+  transition: transform 0.12s;
+}
+
+.experiment-input:focus {
+  transform: translateY(-1px);
+  box-shadow: 4px 4px 0 var(--secondary);
+}
+
+.observation-block {
+  background: #fffbf0;
+  border: 2px solid #000;
+  border-radius: 14px;
+  padding: 16px 20px;
+  margin-bottom: 16px;
+  box-shadow: 2px 2px 0 #000;
+}
+
+.observation-result {
+  font-family: 'Fredoka One', cursive;
+  font-size: 18px;
+  margin-bottom: 6px;
+}
+
+.observation-result.success {
+  color: var(--green);
+}
+
+.observation-result.failure {
+  color: var(--primary);
+}
+
+.observation-note {
+  font-family: 'Comic Neue', cursive;
+  font-size: 14px;
+  font-weight: 700;
+  color: #1e293b;
+  line-height: 1.5;
+}
+
+.explanation-block {
+  background: var(--dark);
+  color: #fff;
+  border: 2px solid #000;
+  border-radius: 14px;
+  padding: 20px 24px;
+  box-shadow: 2px 2px 0 #000;
+}
+
+.explanation-label {
+  font-family: 'Fredoka One', cursive;
+  font-size: 12px;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 6px;
+}
+
+.explanation-what {
+  font-family: 'Fredoka One', cursive;
+  font-size: 20px;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+.explanation-prose {
+  font-family: 'Comic Neue', cursive;
+  font-size: 15px;
+  color: #ccc;
+  line-height: 1.65;
+}
+
+/* char diff */
+.char-grid-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.char-grid-label {
+  font-family: 'Comic Neue', cursive;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #888;
+  min-width: 68px;
+}
+
+.char-grid-cells {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.char-cell {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  border: 2px solid #000;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  font-weight: 700;
+  box-shadow: 1px 1px 0 #000;
+}
+
+.char-cell.match {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.char-cell.diff {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.char-cell.missing {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.char-cell.extra {
+  background: #ede9fe;
+  color: #5b21b6;
+}
+
+/* ranking */
+.rank-table {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.rank-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+}
+
+.rank-label {
+  font-family: 'Comic Neue', cursive;
+  font-size: 14px;
+  color: #ccc;
+}
+
+.rank-value {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* -- BUILD -- */
+.build-hero {
+  padding: 48px 0 24px;
+  text-align: center;
+}
+
+.build-hero-title {
+  font-family: 'Fredoka One', cursive;
+  font-size: clamp(36px, 7vw, 56px);
+  line-height: 1.3;
+  color: var(--dark);
+  text-shadow: 3px 3px 0 var(--accent), 6px 6px 0 #000;
+  margin-bottom: 12px;
+}
+
+.build-hero-sub {
+  font-family: 'Comic Neue', cursive;
+  font-size: 18px;
+  font-weight: 700;
+  color: #334155;
+}
+
+.part-tabs {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+  background: #fff;
+  border: 4px solid #000;
+  border-radius: 16px;
+  padding: 6px;
+  box-shadow: var(--comic-shadow);
+}
+
+.part-tab {
+  flex: 1;
+  font-family: 'Fredoka One', cursive;
+  font-size: 14px;
+  padding: 10px 12px;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  background: none;
+  cursor: pointer;
+  color: var(--dark);
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+
+.part-tab:hover {
+  background: var(--accent);
+  border-color: #000;
+  transform: rotate(-1deg);
+}
+
+.part-tab.active {
+  background: var(--secondary);
+  color: #fff;
+  border-color: #000;
+  box-shadow: 3px 3px 0 #000;
+  transform: rotate(-1deg);
+}
+
+.build-label {
+  font-family: 'Fredoka One', cursive;
+  font-size: 12px;
+  padding: 4px 14px;
+  border-radius: 20px;
+  border: 2px solid #000;
+  display: inline-block;
+  margin-bottom: 8px;
+  box-shadow: 2px 2px 0 #000;
+}
+
+.build-label.blue {
+  background: var(--secondary);
+  color: #fff;
+}
+
+.build-label.gray {
+  background: #f0f0f0;
+  color: #555;
+}
+
+.build-label.red {
+  background: var(--primary);
+  color: #fff;
+}
+
+.build-label.green {
+  background: var(--green);
+  color: #fff;
+}
+
+.build-section-title {
+  font-family: 'Fredoka One', cursive;
+  font-size: 26px;
+  color: var(--dark);
+  margin-bottom: 10px;
+  text-shadow: 1px 1px 0 var(--accent);
+}
+
+.build-prose {
+  font-family: 'Comic Neue', cursive;
+  font-size: 16px;
+  font-weight: 700;
+  color: #334155;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.build-try-label {
+  font-family: 'Fredoka One', cursive;
+  font-size: 16px;
+  color: var(--purple);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  display: block;
+  margin-bottom: 8px;
+  margin-top: 20px;
+}
+
+.build-input {
+  width: 100%;
+  padding: 12px 16px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 15px;
+  border: 3px solid #000;
+  border-radius: 12px;
+  background: #fff;
+  outline: none;
+  box-shadow: 4px 4px 0 #000;
+  margin-bottom: 10px;
+  transition: transform 0.12s;
+}
+
+.build-input:focus {
+  transform: translateY(-2px);
+  box-shadow: 4px 4px 0 var(--purple);
+}
+
+.build-output {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  background: var(--dark);
+  color: var(--green);
+  border: 2px solid #000;
+  border-radius: 10px;
+  padding: 14px 16px;
+  white-space: pre-wrap;
+  min-height: 44px;
+  box-shadow: 2px 2px 0 #000;
+  margin-bottom: 20px;
+}
+
+.build-breaks {
+  background: #fff5f5;
+  border: 2px solid #000;
+  border-radius: 12px;
+  padding: 14px 18px;
+  margin-bottom: 20px;
+  box-shadow: 2px 2px 0 #000;
+}
+
+.build-breaks-text {
+  font-family: 'Comic Neue', cursive;
+  font-size: 14px;
+  font-weight: 700;
+  color: #334155;
+  line-height: 1.5;
+}
+
+.code-reveal {
+  margin-bottom: 24px;
+}
+
+.code-reveal-label {
+  font-family: 'Fredoka One', cursive;
+  font-size: 14px;
+  color: var(--dark);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.code-block {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  background: #1e1e2e;
+  color: #a6e3a1;
+  border: 2px solid #000;
+  border-radius: 14px;
+  padding: 20px;
+  white-space: pre;
+  overflow-x: auto;
+  box-shadow: 2px 2px 0 #000;
+  line-height: 1.7;
+}
+
+/* -- FOOTER -- */
+footer {
+  background: var(--dark);
+  border-top: 4px solid var(--primary);
+  padding: 24px;
+  text-align: center;
+}
+
+/* -- ANIMATIONS -- */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease forwards;
+}
+
+@keyframes comicBounce {
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(-1deg);
+  }
+
+  50% {
+    transform: translateY(-8px) rotate(1deg);
+  }
+}
+
+.comic-float {
+  animation: comicBounce 2.5s ease-in-out infinite;
+}
+
+/* -- FLOATING DECO ELEMENTS -- */
+.deco-circle {
+  position: fixed;
+  border: 4px solid #000;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  box-shadow: var(--comic-shadow);
+}
+
+/* -- AURORA SHIFT -- */
+@keyframes auroraShift {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-aurora {
+  animation: auroraShift 10s ease infinite;
+}
+
+/* -- CUSTOM CURSOR INPUTS -- */
+input,
+textarea,
+select,
+button,
+a,
+[role="button"] {
+  cursor: pointer;
+}
+
+input[type="text"],
+input[type="search"],
+textarea {
+  cursor: text;
+}
+
+/* -- RESPONSIVE AUDIT & WORKSHOP POLISH -- */
+
+/* 1. Header Navigation */
+@media (max-width: 768px) {
+  .nav-inner {
+    flex-direction: column;
+    height: auto;
+    min-height: 80px;
+    padding: 12px 0;
+    gap: 12px;
+    align-items: center;
+  }
+  .nav-brand {
+    text-align: center;
+    justify-content: center;
+  }
+  .tab-nav {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    box-shadow: 2px 2px 0 #000;
+  }
+  .tab-link {
+    padding: 6px 12px;
+    font-size: 13px;
+    flex: 1;
+    text-align: center;
+  }
+}
+
+/* 2. Hero & Subtitles */
+@media (max-width: 640px) {
+  .explore-hero {
+    padding: 24px 0 16px;
+  }
+  .explore-hero-question {
+    font-size: 28px;
+    text-shadow: 1.5px 1.5px 0 var(--primary), 3px 3px 0 #000;
+  }
+  .explore-hero-sub {
+    font-size: 15px;
+  }
+  .build-hero {
+    padding: 24px 0 16px;
+  }
+  .build-hero-title {
+    font-size: 32px;
+    text-shadow: 2px 2px 0 var(--accent), 4px 4px 0 #000;
+  }
+  .build-hero-sub {
+    font-size: 15px;
+  }
+}
+
+/* 3. Pipeline Step Wrapping */
+@media (max-width: 600px) {
+  .pipeline-story {
+    padding: 16px 20px;
+  }
+  .pipeline-step {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    padding: 8px 12px;
+  }
+  .pipeline-step-value {
+    word-break: break-all;
+    text-align: left;
+  }
+}
+
+/* 4. Results Cards */
+@media (max-width: 640px) {
+  .result-card {
+    padding: 18px;
+  }
+  .result-title {
+    font-size: 24px;
+  }
+  .result-reason {
+    font-size: 14px;
+  }
+}
+
+/* 5. Understand Experiment Grid & Buttons */
+@media (max-width: 600px) {
+  .experiment-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .predict-group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 8px;
+  }
+  .predict-btn {
+    width: 100%;
+    text-align: center;
+    padding: 10px 16px;
+  }
+}
+
+/* 6. Character Comparison Grid (Horizontal Scrollable) */
+.char-grid-cells {
+  display: flex;
+  gap: 4px;
+  overflow-x: auto;
+  padding-bottom: 6px;
+  flex-wrap: nowrap !important; /* Force single row */
+  -webkit-overflow-scrolling: touch;
+}
+.char-grid-cells::-webkit-scrollbar {
+  height: 4px;
+}
+.char-grid-cells::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 2px;
+}
+
+/* 7. Code Blocks Horizontal Scrolling */
+.code-block, pre {
+  max-width: 100%;
+  overflow-x: auto !important;
+  white-space: pre !important;
+  word-wrap: normal !important;
+}
+
+/* 8. Build Workshop Part Tabs */
+@media (max-width: 768px) {
+  .part-tabs {
+    gap: 4px;
+    padding: 4px;
+  }
+  .part-tab {
+    font-size: 12px;
+    padding: 8px 6px;
+    flex: 1 1 calc(50% - 4px); /* Wrap to 2 elements per row */
+    text-align: center;
+    white-space: normal;
+  }
+}
+
+/* 9. Text Wrapping on Long Words & Layout Boundaries */
+* {
+  overflow-wrap: break-word;
+}
+code, pre {
+  overflow-wrap: normal; /* Keep standard scroll for code */
+}
+
+/* 10. Ranking priority row responsive wrap */
+.ranking-priority-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border: 2px solid #000;
+  border-radius: 8px;
+  box-shadow: 2px 2px 0 #000;
+  width: 100%;
+  box-sizing: border-box;
+}
+@media (max-width: 600px) {
+  .ranking-priority-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .ranking-priority-row span:last-child {
+    align-self: flex-end;
+  }
+}
+
+/* 11. Modal responsive */
+@media (max-width: 640px) {
+  .modal-container {
+    width: 95% !important;
+    padding: 16px !important;
+    max-height: 90vh !important;
+  }
+}
+
+/* 12. Build Workshop Console Wrap */
+.build-output-console {
+  white-space: pre-wrap !important;
+  word-wrap: break-word !important;
+  word-break: break-word !important;
+  overflow-wrap: break-word !important;
+}
+
+/* 13. Mobile search input placeholder font scaling */
+@media (max-width: 480px) {
+  .search-input::placeholder {
+    font-size: 13px !important;
+  }
+}
