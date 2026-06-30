@@ -363,7 +363,8 @@ Run your dev server and type these exact queries into the search bar:
 In every single case above, the interface will output:
 > 🚨 0 Results Found.
 
-![Diagnose Failure Screenshot](./public/Screenshot%202026-06-25%20224034.png)
+![Diagnose Failure: Typo](./public/Screenshot_Fail_Typo.png)
+![Diagnose Failure: Abbreviation](./public/Screenshot_Fail_Abbrev.png)
 
 ---
 
@@ -504,6 +505,8 @@ export default function SearchPage() {
 Now, type `FRONTEND!!!` or `  frontend  ` into your search box.
 * **Results:** The `"Frontend Developer"` card is displayed! 
 
+![Normalization Success](./public/Screenshot_Norm_Success.png)
+
 ---
 
 ### 🌐 How Google Does It
@@ -624,6 +627,8 @@ export default function SearchPage() {
 #### 🏆 Run and Verify:
 Now, type `ml` or `react` into your search bar.
 * **Results:** Typing `ml` now outputs the `"AI Engineer"` card, and `react` yields `"Frontend Developer"`!
+
+![Alias Expansion Success](./public/Screenshot_Alias_Success.png)
 
 ---
 
@@ -1049,8 +1054,6 @@ export default function SearchConsole() {
 4. Now, check the **ALIAS EXPANSION** toggle.
 5. Watch the Live Status Banner update: `Alias ✓`
 6. *Boom!* **The Matrix** immediately renders on screen!
-
-![Apply Console Hot Swap test verification screenshot](./public/Screenshot_Apply.png)
 
 ### ⚠️ Common Mistakes in Pipeline Assembly
 * **Missing dependency variables in useMemo:** If you omit `config` or `datasetItems` from the `useMemo` dependency array, toggling active check gates or switching datasets won't trigger query re-evaluation. The results will freeze. Always specify all variables consumed inside `useMemo` in the dependency list.
